@@ -1,0 +1,111 @@
+{
+    "cells": [
+        {
+            "language": "javascript",
+            "source": [
+                "import * as dfd from `danfojs-node`"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const subs =(bpac)=> [\n    // MATH\n    { name:``, from:`BPGC`, url:``, dept:`Math` },\n    { name:`Nirman Ganguly`, from:`BPHC`, url:`universe.${bpac}/Hyderabad/nganguly`, dept:`Math` },\n    { name:``, from:`IITM`, url:``, dept:`Math` },\n    // PHY\n    { name:`Radhika Vathsan`, from:`BPGC`, url:`${bpac}/goa/radhikavathsan/StudentProjects`, dept:`Phys` },\n    { name:`P Thiruvikraman`, from:`BPHC`, url:`universe.${bpac}/Hyderabad/pkthirivikraman/ResearchInterests`, dept:`Phys` },\n    { name:``, from:`IITX`, url:``, dept:`Phys` },\n    // CS\n    { name:`Kunal K`, from:`BPGC`, url:`${bpac}/goa/kunalk/ResearchInterest`, dept:`CSIS` },\n    { name:``, from:`BPHC`, url:``, dept:`CSIS` },\n    { name:``, from:`IITX`, url:``, dept:`CSIS` }\n]\ntable = subs(\"bits-pilani.ac.in\")\ntable\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "[",
+                                "  {",
+                                "    name: \u001b[32m''\u001b[39m,",
+                                "    from: \u001b[32m'BPGC'\u001b[39m,",
+                                "    url: \u001b[32m''\u001b[39m,",
+                                "    dept: \u001b[32m'Math'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m'Nirman Ganguly'\u001b[39m,",
+                                "    from: \u001b[32m'BPHC'\u001b[39m,",
+                                "    url: \u001b[32m'universe.bits-pilani.ac.in/Hyderabad/nganguly'\u001b[39m,",
+                                "    dept: \u001b[32m'Math'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m''\u001b[39m,",
+                                "    from: \u001b[32m'IITM'\u001b[39m,",
+                                "    url: \u001b[32m''\u001b[39m,",
+                                "    dept: \u001b[32m'Math'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m'Radhika Vathsan'\u001b[39m,",
+                                "    from: \u001b[32m'BPGC'\u001b[39m,",
+                                "    url: \u001b[32m'bits-pilani.ac.in/goa/radhikavathsan/StudentProjects'\u001b[39m,",
+                                "    dept: \u001b[32m'Phys'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m'P Thiruvikraman'\u001b[39m,",
+                                "    from: \u001b[32m'BPHC'\u001b[39m,",
+                                "    url: \u001b[32m'universe.bits-pilani.ac.in/Hyderabad/pkthirivikraman/ResearchInterests'\u001b[39m,",
+                                "    dept: \u001b[32m'Phys'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m''\u001b[39m,",
+                                "    from: \u001b[32m'IITX'\u001b[39m,",
+                                "    url: \u001b[32m''\u001b[39m,",
+                                "    dept: \u001b[32m'Phys'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m'Kunal K'\u001b[39m,",
+                                "    from: \u001b[32m'BPGC'\u001b[39m,",
+                                "    url: \u001b[32m'bits-pilani.ac.in/goa/kunalk/ResearchInterest'\u001b[39m,",
+                                "    dept: \u001b[32m'CSIS'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m''\u001b[39m,",
+                                "    from: \u001b[32m'BPHC'\u001b[39m,",
+                                "    url: \u001b[32m''\u001b[39m,",
+                                "    dept: \u001b[32m'CSIS'\u001b[39m",
+                                "  },",
+                                "  {",
+                                "    name: \u001b[32m''\u001b[39m,",
+                                "    from: \u001b[32m'IITX'\u001b[39m,",
+                                "    url: \u001b[32m''\u001b[39m,",
+                                "    dept: \u001b[32m'CSIS'\u001b[39m",
+                                "  }",
+                                "]"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "table = table.map((e)=>{\n    const {url, name, dept, from} = e;\n    return{\n        name: name || \"\", \n        from: from || \"\",\n        dept: dept?.toUpperCase(),\n        url: `https:` + (url || \"\")\n    }\n})\n\ndfm = new dfd.DataFrame(table)\ndfm.print()"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "ReferenceError",
+                                "message": "dfd is not defined",
+                                "stack": "    at <Cell 3> [11, 0]\n    at <Cell 3> [14, 46]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)\n    at Object.runInNewContext (node:vm:306:38)\n    at C (/Users/gojira/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:113345)\n    at t.execCode (/Users/gojira/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:114312)\n    at k.<anonymous> (/Users/gojira/.vscode/extensions/donjayamanne.typescript-notebook-2.0.6/out/extension/server/index.js:2:142156)\n    at k.emit (node:events:513:28)\n    at k.emit (node:domain:489:12)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                ""
+            ],
+            "outputs": []
+        }
+    ]
+}
